@@ -1,0 +1,60 @@
+body {
+  background-color: #f0f7ff; /* Mild blue background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This centers the form vertically */
+  margin: 0;  
+  font-size: 20px; /* Increased font size */
+}
+
+form {
+  background-color: #fff; /* White background for the form */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding a slight shadow */
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: inline-block;
+  width: 150px; /* Width of the labels */
+  font-size: inherit; /* Inherit font size from the parent */
+}
+
+input[type="text"],
+select {
+  width: calc(100% - 160px); /* Adjusting the width of text input and select dropdown */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  font-size: inherit; /* Inherit font size from the parent */
+}
+
+input[type="submit"] {
+  background-color: #007bff; /* Button color */
+  color: #fff; /* Text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: inherit; /* Inherit font size from the parent */
+  text-align: center;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3; /* Darker button color on hover */
+}
+
+.sb{
+  text-align: center;
+  padding-top: 20px;
+}
+
+h1{
+  text-align: center;
+}

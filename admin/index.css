@@ -1,0 +1,69 @@
+.nav-main {
+  z-index: 999;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5% 3%;
+  background: #fff;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  width: 100%;
+  /* transform: translateY(100px); */
+}
+
+.incubator-logo {
+  /* display: inline-block; */
+  width: 15%;
+}
+
+/* index.css */
+button {
+  position: relative;
+  z-index: 1000;
+  background-color: blue; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 40px 20px 4px 0px;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 25%;
+  padding-top: 50px;
+  justify-content: center;
+  margin-left: 580px;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-main {
+    padding: 1% 2%; 
+  }
+  
+  .incubator-logo {
+    width: 30%; 
+  }
+
+  button {
+    padding: 12px 24px; 
+    font-size: 14px; 
+    margin-top: 20px; 
+  }
+
+  .buttons {
+    width: auto; 
+    margin-left: 0; 
+    padding-top: 20px;
+    text-align: center;
+  }
+}

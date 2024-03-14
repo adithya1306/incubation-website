@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Project</title>
+  <link rel="stylesheet" href="carousel.css">
+</head>
+<body>
+
+<form id="startupForm" enctype="multipart/form-data">
+  <h2>Add Project Details</h2>
+  <div>
+    <label for="name">Project Name:</label>
+    <input type="text" id="startupName" name="name">
+  </div>
+  <div>
+    <label for="desc">Project Desc:</label>
+    <input type="text" id="startupName" name="desc">
+  </div>
+  <div>
+    <label for="image">Project Image:</label>
+    <input class="image" type="file" id="image" name="image">
+  </div>
+  <div>
+    <img id="previewImage" style="display: none; max-width: 300px; max-height: 300px;" alt="Uploaded Image">
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>
+<script>
+  document.getElementById("startupForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  
+  var formData = new FormData(this);
+  var jsonObject = {};
+  formData.forEach(function(value, key){
+    jsonObject[key] = value;
+  });
+  console.log(jsonObject);
+
+  // Fetch image file
+  const imageFile = formData.get('image');
+  
+  // Check if an image file is selected
+  if (imageFile) {
+    fetch('http://localhost:9000/projectimage', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => { return response.json() })
+    .then(data => {
+      console.log(data.url);
+      fetch('http://localhost:9000/addprojects', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: jsonObject.name,
+          desc: jsonObject.desc,
+          image: data.url
+        })
+      }).then(response => {
+        alert('Project Added!');
+      })
+    })
+    
+  }
+  //console.log(response);
+});
+
+</script>
+</body>
+</html>

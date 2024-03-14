@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Incubation Admin Panel</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <nav class="nav-main">
+      <img loading="lazy" class="incubator-logo" src="logo.png" alt="Sairam Techno Incubator">
+
+    </nav>
+    <div class="buttons">
+      <button id="addStartups">Add Startups</button></a>
+      <button id="addCarousel">Add Carousel Image</button>
+      <button id="addLogos">Add Startup Logos</button>
+      <button id="addProjects">Add Projects</button>
+    </div>
+
+    <script>
+      // Add event listeners to the buttons
+      document.getElementById("addStartups").addEventListener("click", function() {
+        window.location.href = "startup.html"; 
+      });
+
+      document.getElementById("addCarousel").addEventListener("click", function() {
+        window.location.href = "carousel.html"; 
+      });
+
+      document.getElementById("addProjects").addEventListener("click", function() {
+        window.location.href = "project.html"; 
+      });
+
+      document.getElementById("addLogos").addEventListener("click", function() {
+        window.location.href = "logo.html"; 
+      });
+    </script>
+  </body>
+</html>

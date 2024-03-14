@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Startup</title>
+  <link rel="stylesheet" href="startup.css">
+</head>
+<body>
+  <form id="startupForm">
+    <h2>Add Startup Details</h2>
+    <div>
+      <label for="name">Startup Name:</label>
+      <input type="text" id="startupName" name="name">
+    </div>
+    <div>
+      <label for="type">Startup Type:</label>
+      <select id="startupType" name="type">
+        <option value="DPIIT">DPIIT</option>
+        <option value="Non DPIIT">Non DPIIT</option>
+      </select>
+    </div>
+    <div class="sb">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+  <script>
+    document.getElementById("startupForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      
+      var formData = new FormData(this);
+      var jsonObject = {};
+      formData.forEach(function(value, key){
+        jsonObject[key] = value;
+      });
+      console.log(jsonObject);
+
+      fetch('http://localhost:9000/addstartups', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonObject)
+      })
+      .then(response => {
+        console.log('Data sent successfully');
+        console.log(response);
+        alert('Startup Added');
+        document.getElementById("startupForm").reset(); 
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  </script>
+</body>
+</html>
